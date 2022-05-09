@@ -26,7 +26,13 @@ public class IngredientTypeTest {
     @Test
     public void constructorTest1() {
         assertEquals(inTyLiq1.getState(), State.LIQUID);
-        assertEquals(inTyLiq1.getTemperature().getTemperature(), new ArrayList<>(Arrays.asList(0, 0)));
+        assertEquals(inTyLiq1.getTemperature(), new ArrayList<>(Arrays.asList(0, 0)));
+    }
+
+    @Test
+    public void constructorTest2() {
+        assertEquals(inTyPow1.getState(), State.POWDER);
+        assertEquals(inTyPow1.getTemperature(), new ArrayList<>(Arrays.asList(0, 0)));
     }
 
 }

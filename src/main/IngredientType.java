@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
@@ -24,7 +26,7 @@ public class IngredientType {
         return state;
     }
 
-    public Temperature getTemperature() {
-        return temperature;
+    public List<?> getTemperature() {
+        return temperature.getTemperature();
     }
 }
