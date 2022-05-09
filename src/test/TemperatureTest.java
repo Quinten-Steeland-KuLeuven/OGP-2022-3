@@ -17,7 +17,7 @@ public class TemperatureTest {
     Temperature temp1;
 
     @Before
-    public void testsBefore() {
+    public void runBeforeTests() {
         temp1 = new Temperature();
     }
 
