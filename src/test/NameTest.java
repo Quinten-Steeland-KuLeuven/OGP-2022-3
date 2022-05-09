@@ -23,4 +23,16 @@ public class NameTest {
             assertEquals(NAME, name1.getSimpleName());
         }
     }
+
+    @Test
+    public void TestSetSpecialName() {
+        for(String NAME : INVALID_NAMES) {
+            assertThrows(IllegalArgumentException.class, () -> {name1.setSpecialName(NAME);});
+        }
+
+        for(String NAME: VALID_NAMES) {
+            name1.setSimpleName(NAME);
+            assertEquals(NAME, name1.getSpecialName());
+        }
+    }
 }
