@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author  Robbe Vanslambrouck
+ * @author  Quinten Steeland
+ * @author  Wout Voet
+ */
+
 public class Temperature {
 
     private int hotness;
