@@ -6,33 +6,48 @@ import java.util.regex.*;
 public class Name {
     private String simpleName = "";
     public String completeName = "";
-    public String specialName = "";
+    private String specialName = "";
     private List<String> specialWords = new ArrayList<String>(Arrays.asList("mixed", "with"));
 
     void setSimpleName(String name) {
+        if(!hasCorrectNonMixedName(name))
+            throw new IllegalArgumentException("Incorrect name given: " + name);
+        simpleName = name;
+    }
+
+    void setSpecialName(String name) {
+        if(!hasCorrectNonMixedName(name))
+            throw new IllegalArgumentException("Incorrect name given: " + name);
+        specialName = name;
+    }
+
+    private boolean hasCorrectNonMixedName(String name) {
         String[] words = name.split(" ");
         if(words.length == 0) {
-            throw new IllegalArgumentException("No name given");
+            return false;
         }
         int minWordLength = (words.length == 1) ? 3: 2;
         for(String word : words) {
             if(word.length() < minWordLength) {
-                throw new IllegalArgumentException("wrong word size");
+                return false;
             }
             if (specialWords.contains(word.toLowerCase())) {
-                throw new IllegalArgumentException("name contains " + word);
+                return false;
             }
             Pattern pattern = Pattern.compile("^([A-Z'])[a-z']*$");
             Matcher matcher = pattern.matcher(word);
             if(!matcher.find()) {
-                throw new IllegalArgumentException("incorrect format or character");
+                return false;
             }
         }
-
-        simpleName = name;
+        return true;
     }
 
     public String getSimpleName() {
+        return simpleName;
+    }
+
+    public String getSpecialName() {
         return simpleName;
     }
 }
