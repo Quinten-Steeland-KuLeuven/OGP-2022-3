@@ -35,6 +35,26 @@ public class IngredientType {
     }
 
     /**
+     * Initialize an ingredientType with given name, and temperature.
+     * This ingredientType will have a liquid state.
+     * @param   name
+     *          The name of the ingredientType.
+     * @param   temperature
+     *          The temperature of the ingredientType.
+     */
+    public IngredientType(Name name, Temperature temperature) {
+        this(name, State.LIQUID, temperature);
+    }
+
+    /**
+     * Initialize an ingredientType with the name water, a liquid state and a temperature of [0, 20]
+     */
+    public IngredientType() {
+        //TODO water als naam.
+        this(new Name(), State.LIQUID, new Temperature(0, 20));
+    }
+
+    /**
      * Basic getter for the name of the ingredientType.
      * @return The name of the ingredientType.
      */
