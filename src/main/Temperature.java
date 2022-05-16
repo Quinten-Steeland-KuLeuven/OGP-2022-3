@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * A class for temperature
+ * A class for temperature.
  *
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
