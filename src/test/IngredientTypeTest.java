@@ -71,7 +71,7 @@ public class IngredientTypeTest {
         }
 
         for(String NAME: VALID_NON_MIXED_NAMES) {
-            NameTest.setSimpleName(NAME);
+            NameTest.setSpecialName(NAME);
             assertEquals(NAME, NameTest.getSpecialName());
         }
     }
