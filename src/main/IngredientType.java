@@ -1,8 +1,9 @@
 import be.kuleuven.cs.som.annotate.*;
-
 import java.util.List;
 
 /**
+ * Class for ingredient types.
+ *
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
  * @author  Wout Voet

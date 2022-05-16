@@ -1,4 +1,7 @@
 /**
+ * Class of an alchemic ingredient.
+ * (A certain Quantity of IngredientType.)
+ *
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
  * @author  Wout Voet
