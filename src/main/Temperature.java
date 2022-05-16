@@ -130,4 +130,13 @@ public class Temperature {
         return new ArrayList<>(Arrays.asList(this.coldness, this.hotness));
     }
 
+
+    private void heat(int amount) {
+        //TODO
+    }
+
+    private void cool(int amount) {
+        //TODO
+    }
+
 }
