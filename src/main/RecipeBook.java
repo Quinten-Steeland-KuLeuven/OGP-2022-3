@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,15 @@ public class RecipeBook {
     /** A list of recipes. */
     List<Recipe> recipes;
 
+
+    public RecipeBook() {
+        this.recipes = new ArrayList<>();
+    }
+
+    public RecipeBook(Recipe recipe) {
+        this();
+        this.addRecipe(recipe);
+    }
 
     /**
      * Function that adds a recipe to the end of the recipe book.
