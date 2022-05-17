@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * A class for an oven.
  *
@@ -23,6 +25,13 @@ public class Oven extends Device{
 
     public void execute() {
         //TODO
+
+        //TODO
+        //5% afwijking op ingestelde waarde
+        Random random = new Random(System.currentTimeMillis());
+        int value=50;
+        System.out.println(Math.round((((2*random.nextFloat())-1)*0.05)*value)+value);
+
     }
 
 }
