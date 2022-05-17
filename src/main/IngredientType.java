@@ -21,7 +21,7 @@ public class IngredientType {
     private String simpleName;
     private String specialName;
 
-    private List<String> specialWords = new ArrayList<String>(Arrays.asList("mixed", "with"));
+    private final List<String> specialWords = new ArrayList<String>(Arrays.asList("mixed", "with"));
 
     /** The state of the ingredientType. */
     final State state;
@@ -62,16 +62,6 @@ public class IngredientType {
     public IngredientType() {
         this("Water", State.LIQUID, new Temperature(0, 20));
     }
-
-    /**
-     * Basic getter for the name of the ingredientType.
-     * @return The name of the ingredientType.
-     */
-    @Basic
-    public Name getName() {
-        return name;
-    }
-
 
     public String getSimpleName() {
         return simpleName;
