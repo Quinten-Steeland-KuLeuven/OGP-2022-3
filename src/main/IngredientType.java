@@ -26,6 +26,7 @@ public class IngredientType {
     /**
      * returns the simple name of this ingredientType
      */
+    @Basic
     public String getSimpleName() {
         return simpleName;
     }
@@ -33,6 +34,7 @@ public class IngredientType {
     /**
      * returns the special name of this ingredientType
      */
+    @Basic
     public String getSpecialName() {
         return specialName;
     }
