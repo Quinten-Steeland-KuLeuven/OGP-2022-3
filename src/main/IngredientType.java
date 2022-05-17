@@ -23,32 +23,63 @@ public class IngredientType {
         this.temperature = temperature;
     }
 
+    /**
+     * returns the simple name of this ingredientType
+     */
     public String getSimpleName() {
         return simpleName;
     }
 
+    /**
+     * returns the special name of this ingredientType
+     */
     public String getSpecialName() {
         return specialName;
     }
 
-    public void setSimpleName(String simpleName) {
+    /**
+     * sets the simpleName to the given name if this name is a correct non-mixed name
+     * @param simpleName
+     * @throws IllegalArgumentException
+     *         the given simpleName is not a correct non-mixed name
+     *         | !isCorrectNonMixedName(simpleName)
+     */
+    public void setSimpleName(String simpleName) throws IllegalArgumentException {
         if (!isCorrectNonMixedName(simpleName))
             throw new IllegalArgumentException("given name: " + simpleName + " is not correct");
         this.simpleName = simpleName;
     }
 
-    public void setSimpleNameMixed(String simpleName) {
+    /**
+     * sets the simpleName to the given name if this name is a correct mixed name
+     * @param simpleName
+     * @throws IllegalArgumentException
+     *         the given simpleName is not a correct mixed name
+     *         | !isCorrectMixedName(simpleName)
+     */
+    public void setSimpleNameMixed(String simpleName) throws IllegalArgumentException {
         if (!isCorrectMixedName(simpleName))
             throw new IllegalArgumentException("given name: " + simpleName + " is not correct");
         this.simpleName = simpleName;
     }
 
-    public void setSpecialName(String specialName) {
+    /**
+     * set the specialName to the given name if this name is a correct non-mixed name
+     * @param specialName
+     * @throws IllegalArgumentException
+     *         the given specialName is not a correct non-mixed name
+     *         | !isCorrectNonMixedName(specialName)
+     */
+    public void setSpecialName(String specialName) throws IllegalArgumentException {
         if (!isCorrectNonMixedName(specialName))
             throw new IllegalArgumentException("given name: " + specialName + " is not correct");
         this.specialName = specialName;
     }
 
+    /**
+     * checks whether the given name is a correct name for a non-mixed ingredient
+     * @param nonMixedName
+     */
     private boolean isCorrectNonMixedName(String nonMixedName) {
         String[] words = nonMixedName.split(" ");
         if(words.length == 0) {
@@ -70,7 +101,10 @@ public class IngredientType {
         }
         return true;
     }
-
+    /**
+     * checks whether the given name is a correct name for a mixed ingredient
+     * @param mixedName
+     */
     private  boolean isCorrectMixedName(String mixedName) {
 
         if(!isCorrectlyStructured(mixedName))
@@ -81,7 +115,13 @@ public class IngredientType {
 
         return true;
     }
-
+    /**
+     * checks whether the given name has a correct structure for a mixed ingredient
+     * this structure consists of correct non-mixed ingredient names with in between the names first one "mixed with" followed
+     * with a "," between the next names and at the end of the list an "and". the non-mixed names also have to be
+     * alphabetically ordered.
+     * @param mixedName
+     */
     private boolean isCorrectlyStructured(String mixedName) {
         String s = mixedName.replaceAll("mixed with", "0")
                 .replaceAll(",", "1").replaceAll("and", "2")
@@ -98,6 +138,10 @@ public class IngredientType {
         return true;
     }
 
+    /**
+     * checks whether an array of strings is alphabetically ordered
+     * @param names
+     */
     private boolean isAlphabetical(String[] names) {
         String previous = names[0];
         for(String name : names) {
@@ -107,11 +151,14 @@ public class IngredientType {
         return true;
     }
 
+    /**
+     * checks whether the given mixed name contains correct ingredient names
+     * @param mixedName
+     */
     private boolean hasCorrectIngredientNames(String mixedName) {
         String[] nonMixedNames = mixedName.split(" mixed with |, | and ");
 
         for(String name : nonMixedNames) {
-            System.out.println(name);
             if (!isCorrectNonMixedName(name))
                 return false;
         }
