@@ -43,7 +43,7 @@ public class Laboratory {
      *          The amount of ingredient to remove.
      * @return  A container with given amount of ingredient.
      */ //A new container is made every time.
-    public IngredientContainer removeIngredient(Name name, Quantity amount) {
+    public IngredientContainer removeIngredient(String name, Quantity amount) {
 
         //TODO
         return null;

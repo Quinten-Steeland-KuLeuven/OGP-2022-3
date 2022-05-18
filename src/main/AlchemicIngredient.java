@@ -9,7 +9,7 @@
 
 public class AlchemicIngredient {
 
-    Name name;
+    String name;
     Quantity quantity;
     IngredientType ingredientType;
     State state;
