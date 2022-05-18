@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * A class for temperature
+ * A class for temperature.
  *
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
@@ -128,6 +128,15 @@ public class Temperature {
      */
     public List<?> getTemperature() {
         return new ArrayList<>(Arrays.asList(this.coldness, this.hotness));
+    }
+
+
+    private void heat(int amount) {
+        //TODO
+    }
+
+    private void cool(int amount) {
+        //TODO
     }
 
 }

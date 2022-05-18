@@ -7,6 +7,8 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * Test for the Temperature class.
+ *
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
  * @author  Wout Voet

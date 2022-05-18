@@ -1,4 +1,7 @@
 /**
+ * Class of an alchemic ingredient.
+ * (A certain Quantity of IngredientType.)
+ *
  * @author  Robbe Vanslambrouck
  * @author  Quinten Steeland
  * @author  Wout Voet
@@ -6,7 +9,7 @@
 
 public class AlchemicIngredient {
 
-    Name name;
+    String name;
     Quantity quantity;
     IngredientType ingredientType;
     State state;
