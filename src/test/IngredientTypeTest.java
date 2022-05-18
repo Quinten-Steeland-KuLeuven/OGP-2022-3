@@ -62,7 +62,6 @@ public class IngredientTypeTest {
     @Test
     public void TestSetSimpleNameMixed() {
         for(String NAME : INVALID_MIXED_NAMES) {
-            System.out.println(NAME);
             assertThrows(IllegalArgumentException.class, () -> {NameTest.setSimpleNameMixed(NAME);});
         }
 
