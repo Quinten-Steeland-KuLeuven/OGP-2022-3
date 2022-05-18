@@ -40,7 +40,7 @@ public class TemperatureTest {
 
     @Test
     public void testConstructor3() {
-        Temperature tempLocal1 = new Temperature(1100, 0);
+        Temperature tempLocal1 = new Temperature(11000, 0);
         assertEquals(tempLocal1.getColdness() , 0);
         assertEquals(tempLocal1.getHotness() , 0);
         assertEquals(tempLocal1.getTemperature(), new ArrayList<>(Arrays.asList(0, 0)));
@@ -48,7 +48,7 @@ public class TemperatureTest {
 
     @Test
     public void testConstructor4() {
-        Temperature tempLocal1 = new Temperature(1100, 5000);
+        Temperature tempLocal1 = new Temperature(11000, 50000);
         assertEquals(tempLocal1.getColdness() , 0);
         assertEquals(tempLocal1.getHotness() , 0);
         assertEquals(tempLocal1.getTemperature(), new ArrayList<>(Arrays.asList(0, 0)));
