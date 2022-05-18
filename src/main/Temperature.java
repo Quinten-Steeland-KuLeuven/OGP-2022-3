@@ -13,29 +13,23 @@ import java.util.List;
  */
 public class Temperature {
 
-    /** The hotness between 0 and MAX_HOTNESS. */
+    /** The hotness between 0 and MAX_TEMPERATURE. */
     private int hotness;
 
-    /** The coldness between 0 and MAX_COLDNESS. */
+    /** The coldness between 0 and MAX_TEMPERATURE. */
     private int coldness;
 
-    /** The maximum hotness allowed. */
-    private final int MAX_HOTNESS=1000;
+    /** The maximum temperature allowed. */
+    private static int maxTemperature =10000;
 
-    /** The maximum coldness allowed. */
-    private final int MAX_COLDNESS=1000;
-
-    /** The minimum hotness allowed. */
-    private final int MIN_HOTNESS=0;
-
-    /** The minimum coldness allowed. */
-    private final int MIN_COLDNESS=0;
+    /** The minimum temperature allowed. */
+    private static final int MIN_TEMPERATURE=0;
 
     /** The default hotness. */
-    private final int DEFAULT_HOTNESS=0;
+    private static final int DEFAULT_HOTNESS=0;
 
     /** The default coldness. */
-    private final int DEFAULT_COLDNESS=0;
+    private static final int DEFAULT_COLDNESS=0;
 
     /**
      Initialize a new temperature with coldness zero and hotness zero.
@@ -104,10 +98,10 @@ public class Temperature {
      *        The hotness that you want to set.
      */
     private void setHotness(int hotness) {
-        if ( this.MIN_HOTNESS <= hotness && hotness <= this.MAX_HOTNESS)
+        if ( MIN_TEMPERATURE <= hotness && hotness <= maxTemperature)
             this.hotness = hotness;
         else
-            this.hotness = this.DEFAULT_HOTNESS;
+            this.hotness = DEFAULT_HOTNESS;
     }
 
     /**
@@ -116,10 +110,10 @@ public class Temperature {
      *        The coldness that you want to set.
      */
     private void setColdness(int coldness) {
-        if ( this.MIN_COLDNESS <= coldness && coldness <= this.MAX_COLDNESS)
+        if ( MIN_TEMPERATURE <= coldness && coldness <= maxTemperature)
             this.coldness = coldness;
         else
-            this.coldness = this.DEFAULT_COLDNESS;
+            this.coldness = DEFAULT_COLDNESS;
     }
 
     /**
@@ -130,13 +124,40 @@ public class Temperature {
         return new ArrayList<>(Arrays.asList(this.coldness, this.hotness));
     }
 
-
-    private void heat(int amount) {
-        //TODO
+    /**
+     * Set the max value that is allowed for temperature.
+     * @param   newMaxTemperature
+     *          The maximum value that temperature can have.
+     */
+    public void setMaxTemperature(int newMaxTemperature) {
+        if (newMaxTemperature > MIN_TEMPERATURE && newMaxTemperature >= maxTemperature)
+        Temperature.maxTemperature = newMaxTemperature;
     }
 
-    private void cool(int amount) {
-        //TODO
+    /**
+     * Heat the temperature by a certain amount.
+     * @param   amount
+     *          The amount to increase the temperature by.
+     */
+    protected void heat(int amount) {
+        //FIXME first cold down then hot up
+        if (getHotness()+amount <= maxTemperature) {
+            if (this.coldness != MIN_TEMPERATURE) this.coldness = MIN_TEMPERATURE;
+            this.setHotness(getHotness()+amount);
+        }
+    }
+
+    /**
+     * Cool the temperature by a certain amount.
+     * @param   amount
+     *          The amount to decrease the temperature by.
+     */
+    protected void cool(int amount) {
+        //FIXME
+        if (getColdness()+amount <= maxTemperature) {
+            if (this.hotness != MIN_TEMPERATURE) this.hotness = MIN_TEMPERATURE;
+            this.setColdness(getColdness()+amount);
+        }
     }
 
 }
