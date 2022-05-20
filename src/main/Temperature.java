@@ -140,7 +140,6 @@ public class Temperature {
      *          The amount to increase the temperature by.
      */
     protected void heat(int amount) {
-        //FIXME first cold down then hot up
         if (getHotness()+amount <= maxTemperature) {
             if (this.coldness != MIN_TEMPERATURE) this.coldness = MIN_TEMPERATURE;
             this.setHotness(getHotness()+amount);
@@ -153,7 +152,6 @@ public class Temperature {
      *          The amount to decrease the temperature by.
      */
     protected void cool(int amount) {
-        //FIXME
         if (getColdness()+amount <= maxTemperature) {
             if (this.hotness != MIN_TEMPERATURE) this.hotness = MIN_TEMPERATURE;
             this.setColdness(getColdness()+amount);
