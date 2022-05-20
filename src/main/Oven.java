@@ -21,17 +21,29 @@ public class Oven extends Device{
         this.temperature = temperature;
     }
 
-
+    /**
+     * getter for temperature.
+     * @return The temperature.
+     */
+    public Temperature getTemperature() {
+        return temperature;
+    }
 
     public void execute() {
-        //TODO
+        if (isInALaboratory()) {
+            int currentHotness = this.contents.get(0).temperature.getHotness();
+            int setHotness = this.getTemperature().getHotness();
+            if (setHotness > currentHotness) {
+                //5% afwijking op ingestelde waarde
+                Random random = new Random(System.currentTimeMillis());
+                int newHotness = (int) Math.round((((2 * random.nextFloat()) - 1) * 0.05) * setHotness) + setHotness;
 
-        //TODO
-        //5% afwijking op ingestelde waarde
-        Random random = new Random(System.currentTimeMillis());
-        int value=50;
-        System.out.println(Math.round((((2*random.nextFloat())-1)*0.05)*value)+value);
+                if (newHotness > currentHotness) {
+                    this.contents.get(0).temperature.heat(newHotness - currentHotness);
+                }
 
+            }
+        }
     }
 
 }

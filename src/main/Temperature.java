@@ -138,9 +138,9 @@ public class Temperature {
      * Heat the temperature by a certain amount.
      * @param   amount
      *          The amount to increase the temperature by.
-     */
+     */ // 1] protected so only oven and coolingbox use this.
+        //    (I don't know if this is necessary or needed to be done this way.)
     protected void heat(int amount) {
-        //FIXME first cold down then hot up
         if (getHotness()+amount <= maxTemperature) {
             if (this.coldness != MIN_TEMPERATURE) this.coldness = MIN_TEMPERATURE;
             this.setHotness(getHotness()+amount);
@@ -151,9 +151,8 @@ public class Temperature {
      * Cool the temperature by a certain amount.
      * @param   amount
      *          The amount to decrease the temperature by.
-     */
+     */ // idem 1] see above
     protected void cool(int amount) {
-        //FIXME
         if (getColdness()+amount <= maxTemperature) {
             if (this.hotness != MIN_TEMPERATURE) this.hotness = MIN_TEMPERATURE;
             this.setColdness(getColdness()+amount);
