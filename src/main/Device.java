@@ -13,7 +13,7 @@ public abstract class Device {
 
     /** The laboratory this device is in. */
     Laboratory laboratory;
-
+    IngredientContainer ingredients;
     /**
      * Function that adds this device to a laboratory.
      * @param   laboratory
@@ -46,7 +46,7 @@ public abstract class Device {
      *          The container containing the ingredient.
      */ // container gets removed when used.
     public void addIngredients(IngredientContainer container) {
-
+        this.ingredients = container
     }
 
     /**
