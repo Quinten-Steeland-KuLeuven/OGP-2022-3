@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A class for devices.
@@ -9,7 +10,8 @@
  */
 public abstract class Device {
 
-    //contents
+    /** The ingredient(s) stored in the device. */
+    List<AlchemicIngredient> contents = new ArrayList<>();
 
     /** The laboratory this device is in. */
     Laboratory laboratory;
@@ -49,7 +51,11 @@ public abstract class Device {
      *          The container containing the ingredient.
      */ // container gets removed when used.
     public void addIngredients(IngredientContainer container) {
-
+        //TODO  check if ingredient is the same as the one currently in the device (if any)
+        //      Overwrite in kettle because multiple ingredients are allowed there.
+        //      If it is the same, change the quantity of the ingredient stored to:
+        //        ingre1.quantity +
+        this.contents.add(container.getStoredIngredient());
     }
 
     /**

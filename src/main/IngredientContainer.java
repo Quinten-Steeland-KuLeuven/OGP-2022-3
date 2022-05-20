@@ -12,4 +12,11 @@ public class IngredientContainer {
     /** The ingredient stored in the container. */
     AlchemicIngredient storedIngredient;
 
+    /**
+     * Getter for the stored ingredient.
+     * @return The stored ingredient.
+     */
+    public AlchemicIngredient getStoredIngredient() {
+        return this.storedIngredient;
+    }
 }
