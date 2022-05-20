@@ -109,15 +109,19 @@ public class Laboratory {
      *          The device to check.
      * @return  True if it can be added.
      *          | device.getClass() not in this.devices.getClass()
+     *          |   && !device.isInALaboratory
      */
     public boolean canHaveAsDevice(Device device) {
-        //Kan waarschijnelijk efficenter.
         boolean canHave = true;
         for (Device deviceInLab : this.devices) {
+            //Kan waarschijnelijk efficenter.
             if (deviceInLab.getClass().equals( device.getClass())) {
                 canHave = false;
                 break;
             }
+        }
+        if (canHave && device.isInALaboratory()) {
+            canHave = false;
         }
         return canHave;
     }

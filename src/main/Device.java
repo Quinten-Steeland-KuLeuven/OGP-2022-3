@@ -24,11 +24,14 @@ public abstract class Device {
     }
 
     /**
-     * Function that removes this device from its laboratory.
+     * Function that removes this device from its laboratory, if it is in one.
      */
     public void removeFromLaboratory() {
-        this.laboratory.removeDevice(this);
+        if (isInALaboratory()) {
+            this.laboratory.removeDevice(this);
+        }
     }
+
 
     /**
      * Function that sets this.laboratory to laboratory.
@@ -58,9 +61,17 @@ public abstract class Device {
     }
 
     /**
+     * Check if this device is in a laboratory.
+     * @return True if in a laboratory.
+     */
+    public boolean isInALaboratory() {
+        return this.laboratory != null;
+    }
+
+    /**
      * Function that executes the operation of the device if it is in a laboratory.
      * @pre Device should be in a laboratory
-     *      | this.laboratory != null
+     *      | isInALaboratory
      */
     public abstract void execute();
 
