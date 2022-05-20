@@ -1,3 +1,5 @@
+
+
 /**
  * A class for devices.
  *
@@ -18,16 +20,23 @@ public abstract class Device {
      *          The laboratory to add the device to.
      */
     public void addToLaboratory(Laboratory laboratory) {
-        //TODO deftig
-        this.laboratory = laboratory;
+        laboratory.addDevice(this);
     }
 
     /**
      * Function that removes this device from its laboratory.
      */
     public void removeFromLaboratory() {
-        //TODO deftig
-        this.laboratory = null;
+        this.laboratory.removeDevice(this);
+    }
+
+    /**
+     * Function that sets this.laboratory to laboratory.
+     * @param   laboratory
+     *          The laboratory to set this.laboratory to.
+     */
+    protected void setLaboratory(Laboratory laboratory) {
+        this.laboratory = laboratory;
     }
 
 
@@ -49,7 +58,9 @@ public abstract class Device {
     }
 
     /**
-     * Function that executes the operation of the device.
+     * Function that executes the operation of the device if it is in a laboratory.
+     * @pre Device should be in a laboratory
+     *      | this.laboratory != null
      */
     public abstract void execute();
 
